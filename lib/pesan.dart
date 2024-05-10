@@ -92,9 +92,8 @@ class _AddLaporPageState extends State<AddLaporPage> {
   TextEditingController _namaController = TextEditingController();
   TextEditingController _nimController = TextEditingController();
   TextEditingController _lokasiController = TextEditingController();
-  String? _selectedRuangan; // Variabel untuk menyimpan ruangan yang dipilih
+  String? _selectedRuangan;
 
-  // Daftar pilihan ruangan
   List<String> ruanganOptions = [
     'Ruangan 1',
     'Ruangan 2',
@@ -110,11 +109,10 @@ class _AddLaporPageState extends State<AddLaporPage> {
     'Ruangan 12',
   ];
 
-  // Method untuk menampilkan messagebox
   Future<void> _showDialog() async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // dialog tidak bisa ditutup dengan mengetuk di luar dialog
+      barrierDismissible: false, 
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Pesanan Berhasil !'),
@@ -170,7 +168,7 @@ class _AddLaporPageState extends State<AddLaporPage> {
                     TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),
               ),
             ),
-            // Ganti TextField dengan DropdownButtonFormField untuk pilihan ruangan
+
             DropdownButtonFormField(
               decoration: InputDecoration(
                 labelText: 'Ruangan',
@@ -203,7 +201,7 @@ class _AddLaporPageState extends State<AddLaporPage> {
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                // Simpan data laporan
+
                 String laporan =
                     'Nama: ${_namaController.text}\nNIM: ${_nimController.text}\nRuangan: $_selectedRuangan\nTanggal: ${_lokasiController.text}';
                 Navigator.pop(context, laporan);
